@@ -1,7 +1,5 @@
 {
     "code-runner.executorMap": {
-        "c": "gcc codigo/main.c -o jogo.exe -I raylib-6.0_win64_mingw-w64/include -L raylib-6.0_win64_mingw-w64/lib -lraylib -lopengl32 -lgdi32 -lwinmm && ./jogo.exe"
-    },
-    "code-runner.clearPreviousOutput": true,
-    "code-runner.saveFileBeforeRun": true
+       "c": "gcc ${fileDirname}/*.c -o ${fileDirname}/../jogo.exe -I ${workspaceFolder}/raylib-6.0_win64_mingw-w64/include -L ${workspaceFolder}/raylib-6.0_win64_mingw-w64/lib -lraylib -lopengl32 -lgdi32 -lwinmm && ${fileDirname}/../jogo.exe"
+    }
 }
