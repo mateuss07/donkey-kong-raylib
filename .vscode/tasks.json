@@ -3,6 +3,7 @@
     "tasks": [
         {
             "label": "build raylib",
+
             "type": "shell",
 
             "command": "C:/w64devkit/bin/gcc.exe",
@@ -31,7 +32,9 @@
                 "isDefault": true
             },
 
-            "problemMatcher": ["$gcc"]
+            "problemMatcher": [
+                "$gcc"
+            ]
         }
     ]
 }
