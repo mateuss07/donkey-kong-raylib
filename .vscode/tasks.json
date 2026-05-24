@@ -16,7 +16,7 @@
                 "-I",
                 "${workspaceFolder}/headers",
 
-                "${workspaceFolder}/codigo/mapa.c", 
+                "${workspaceFolder}/codigo/bibliotecas/mapa.c", 
 
                 "${workspaceFolder}/codigo/main.c",
 
