@@ -1,9 +1,5 @@
 #include <raylib.h>
-#include <placar.h>
 #include <mapa.h>
-#include <jogador.h>
-#include <inimigo.h>
-
 
 int main() {
 

@@ -17,9 +17,6 @@
                 "${workspaceFolder}/headers",
 
                 "${workspaceFolder}/codigo/mapa.c", 
-                "${workspaceFolder}/codigo/placar.c",  
-                "${workspaceFolder}/codigo/inimigo.c",
-                "${workspaceFolder}/codigo/jogador.c", 
 
                 "${workspaceFolder}/codigo/main.c",
 
