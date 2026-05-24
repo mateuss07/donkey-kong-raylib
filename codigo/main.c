@@ -1,4 +1,8 @@
 #include <raylib.h>
+#include <placar.h>
+#include <mapa.h>
+#include <jogador.h>
+#include <inimigo.h>
 
 
 int main() {
@@ -11,7 +15,7 @@ int main() {
 
         ClearBackground(RAYWHITE);
 
-        DrawText("Hello Raylib!", 390, 200, 20, RED);
+        DrawText("Hello Raylib!", 400, 200, 40, BLUE);
 
         EndDrawing();
     }

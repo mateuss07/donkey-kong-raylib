@@ -13,6 +13,14 @@
                 "-I",
                 "${workspaceFolder}/raylib-6.0_win64_mingw-w64/include",
 
+                "-I",
+                "${workspaceFolder}/headers",
+
+                "${workspaceFolder}/codigo/mapa.c", 
+                "${workspaceFolder}/codigo/placar.c",  
+                "${workspaceFolder}/codigo/inimigo.c",
+                "${workspaceFolder}/codigo/jogador.c", 
+
                 "${workspaceFolder}/codigo/main.c",
 
                 "-L",

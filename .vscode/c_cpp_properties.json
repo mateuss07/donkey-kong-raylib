@@ -3,8 +3,9 @@
         {
             "name": "Win32",
             "includePath": [
-               "${workspaceFolder}/**",
-                "${workspaceFolder}/raylib-6.0_win64_mingw-w64/include"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/raylib-6.0_win64_mingw-w64/include",
+                "${workspaceFolder}/headers"
             ],
             "defines": [
                 "_DEBUG",
