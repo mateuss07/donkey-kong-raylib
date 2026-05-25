@@ -1,5 +1,5 @@
 #include <raylib.h>
-
+#include <mapa.h>
 
 int main() {
 
@@ -11,7 +11,7 @@ int main() {
 
         ClearBackground(RAYWHITE);
 
-        DrawText("Hello Raylib!", 190, 200, 20, LIGHTGRAY);
+        DrawText("Hello Raylib!", 400, 200, 40, BLUE);
 
         EndDrawing();
     }
