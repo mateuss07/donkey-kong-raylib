@@ -12,7 +12,7 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "C:\\w64devkit\\bin\\gcc.exe",
+            "compilerPath": "D:\\winlibs-x86_64-posix-seh-gcc-16.1.0-mingw-w64ucrt-14.0.0-r1\\mingw64\\bin\\gcc.exe",
             "cStandard": "c17",
             "cppStandard": "gnu++20",
             "intelliSenseMode": "windows-gcc-x64"
