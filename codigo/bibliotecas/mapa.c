@@ -19,7 +19,7 @@ void carregarMapa(char mapa[LINHAS][COLUNAS], int fase) {
         printf("Erro ao abrir o arquivo do mapa\n");
     else {
         for (int i = 0; i < LINHAS; i++) {
-            fread(mapa[i][0], sizeof(char), COLUNAS, mapa_f);
+            fread(mapa[i], sizeof(char), COLUNAS, mapa_f);
             fgetc(mapa_f); // descarta o '\n'
         }
 
@@ -37,8 +37,12 @@ void desenharMapa(char mapa[LINHAS][COLUNAS]) {
 
             if (mapa[i][j] == PLATAFORMA)
                 DrawRectangle(x, y, TAMANHO, TAMANHO, BLACK);
-            else if (mapa[i][j] == ESCADA_VAZIA || mapa[i][j] == ESCADA_SUBIR || mapa[i][j] == ESCADA_DESCER)
+            else if (mapa[i][j] == ESCADA_VAZIA)
+                DrawRectangle(x, y, TAMANHO, TAMANHO, RAYWHITE);
+            else if(mapa[i][j] == ESCADA_SUBIR)
                 DrawRectangle(x, y, TAMANHO, TAMANHO, YELLOW);
+            else if(mapa[i][j] == ESCADA_DESCER)
+                DrawRectangle(x, y, TAMANHO, TAMANHO, RED);
             else if (mapa[i][j] == PORTA)
                 DrawRectangle(x, y, TAMANHO, TAMANHO, GREEN);
         }
