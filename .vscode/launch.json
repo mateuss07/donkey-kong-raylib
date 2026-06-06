@@ -20,7 +20,7 @@
 
             "MIMode": "gdb",
 
-            "miDebuggerPath": "D:/winlibs-x86_64-posix-seh-gcc-16.1.0-mingw-w64ucrt-14.0.0-r1/mingw64/bin/gdb.exe",
+            "miDebuggerPath": "C:/w64devkit/bin/gdb.exe",
 
             "preLaunchTask": "build raylib"
         }

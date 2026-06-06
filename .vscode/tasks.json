@@ -6,7 +6,7 @@
 
             "type": "shell",
 
-            "command": "D:/winlibs-x86_64-posix-seh-gcc-16.1.0-mingw-w64ucrt-14.0.0-r1/mingw64/bin/gcc.exe",
+            "command": "C:/w64devkit/bin/gcc.exe",
 
             "args": [
 
@@ -16,10 +16,14 @@
                 "-I",
                 "${workspaceFolder}/headers",
 
-                "${workspaceFolder}/codigo/bibliotecas/mapa.c", 
-
+               "${workspaceFolder}/codigo/bibliotecas/mapa.c",
+                "${workspaceFolder}/codigo/bibliotecas/inimigo.c",
+                "${workspaceFolder}/codigo/bibliotecas/jogador.c",
+                "${workspaceFolder}/codigo/bibliotecas/menu.c",
+                "${workspaceFolder}/codigo/bibliotecas/placar.c",
                 "${workspaceFolder}/codigo/main.c",
-
+        
+        
                 "-L",
                 "${workspaceFolder}/raylib-6.0_win64_mingw-w64/lib",
 

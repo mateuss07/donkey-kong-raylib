@@ -11,7 +11,7 @@ int main() {
 
         ClearBackground(RAYWHITE);
 
-        DrawText("Hello Raylib!", 400, 200, 40, BLUE);
+        DrawText("Hello Raylib!", 400, 200, 40, GREEN);
 
         EndDrawing();
     }
