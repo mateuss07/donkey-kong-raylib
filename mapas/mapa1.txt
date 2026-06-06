@@ -25,6 +25,6 @@ H H
 S P S                        
 S D D S                      
 ZZZZZZZZZZZHZZZHZZZZZZZZZZZZZ
-H H
-S D S E
+H H                          
+S D S E                       
 ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
