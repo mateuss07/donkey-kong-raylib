@@ -5,7 +5,7 @@
 #include <string.h>
 
 void carregarMapa(char mapa[LINHAS][COLUNAS], int fase) {
-    char nomeArquivo[32];
+    char nomeArquivo[30];
     FILE *mapa_f;
 
     if (fase == 1)
@@ -19,8 +19,8 @@ void carregarMapa(char mapa[LINHAS][COLUNAS], int fase) {
         printf("Erro ao abrir o arquivo do mapa\n");
     else {
         for (int i = 0; i < LINHAS; i++) {
-            fread(mapa[i], sizeof(char), COLUNAS, mapa_f);
-            fread(&(char){0}, sizeof(char), 1, mapa_f); // descarta o '\n'
+            fread(mapa[i][0], sizeof(char), COLUNAS, mapa_f);
+            fgetc(mapa_f); // descarta o '\n'
         }
 
         fclose(mapa_f);

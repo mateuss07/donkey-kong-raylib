@@ -25,7 +25,5 @@
 #define VELOCIDADE_INIMIGO  2
 
 //INIMIGOS
-#define MAX_INIMIGOS  10
 
-//FASES
-#define MAX_FASES  5
+
