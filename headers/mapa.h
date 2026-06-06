@@ -1,1 +1,4 @@
-int soma(int a, int b);
+#include "constantes.h"
+
+void carregarMapa(char mapa[LINHAS][COLUNAS], int fase);
+void desenharMapa(char mapa[LINHAS][COLUNAS]);
