@@ -1,7 +1,8 @@
 #include "raylib.h"
 #include "constantes.h"
 
-typedef struct {
+typedef struct
+{
     int linha;
     int coluna;
     int ativo;
