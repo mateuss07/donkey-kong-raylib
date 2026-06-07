@@ -1,5 +1,7 @@
 {
     "code-runner.executorMap": {
        "c": "gcc ${fileDirname}/*.c -o ${fileDirname}/../jogo.exe -I ${workspaceFolder}/raylib-6.0_win64_mingw-w64/include -L ${workspaceFolder}/raylib-6.0_win64_mingw-w64/lib -lraylib -lopengl32 -lgdi32 -lwinmm && ${fileDirname}/../jogo.exe"
-    }
+    },
+    "C_Cpp.default.cStandard": "c99",
+    "C_Cpp.default.compilerPath": "C:/w64devkit/bin/gcc.exe"
 }

@@ -3,47 +3,38 @@
     "tasks": [
         {
             "label": "build raylib",
-
             "type": "shell",
-
             "command": "C:/w64devkit/bin/gcc.exe",
-
             "args": [
+                "-I", "${workspaceFolder}/raylib-6.0_win64_mingw-w64/include",
+                "-I", "${workspaceFolder}/headers",
 
-                "-I",
-                "${workspaceFolder}/raylib-6.0_win64_mingw-w64/include",
-
-                "-I",
-                "${workspaceFolder}/headers",
-
-               "${workspaceFolder}/codigo/bibliotecas/mapa.c",
+                "${workspaceFolder}/codigo/bibliotecas/mapa.c",
                 "${workspaceFolder}/codigo/bibliotecas/inimigo.c",
                 "${workspaceFolder}/codigo/bibliotecas/jogador.c",
                 "${workspaceFolder}/codigo/bibliotecas/menu.c",
                 "${workspaceFolder}/codigo/bibliotecas/placar.c",
                 "${workspaceFolder}/codigo/main.c",
-        
-        
-                "-L",
-                "${workspaceFolder}/raylib-6.0_win64_mingw-w64/lib",
 
+                "-L", "${workspaceFolder}/raylib-6.0_win64_mingw-w64/lib",
                 "-lraylib",
                 "-lopengl32",
                 "-lgdi32",
                 "-lwinmm",
 
-                "-o",
-                "${workspaceFolder}/jogo.exe"
+                "-o", "${workspaceFolder}/jogo.exe"
             ],
-
+            "options": {
+                "shell": {
+                    "executable": "cmd.exe",
+                    "args": ["/c"]
+                }
+            },
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-
-            "problemMatcher": [
-                "$gcc"
-            ]
+            "problemMatcher": ["$gcc"]
         }
     ]
 }
