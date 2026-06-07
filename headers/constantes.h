@@ -5,6 +5,12 @@
 #define FPS       30
 #define TITULO_JANELA   "JOGO DONKEY KONG"
 
+//MENU
+#define MENU 0
+#define ENTRAR_JOGO 1
+#define ENTRA_RANKING 2
+#define SAIR 3
+
 //MAPA
 #define LINHAS          30
 #define COLUNAS         30
