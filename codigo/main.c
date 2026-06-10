@@ -1,9 +1,11 @@
 #include <raylib.h>
 #include "mapa.h"
 #include "menu.h"
+#include "jogador.h"
 
 int main() {
 
+    JOGADOR_S jogador;
     int opcao = MENU;
     char mapa[LINHAS][COLUNAS];
 
@@ -11,8 +13,12 @@ int main() {
     SetTargetFPS(FPS);
 
     carregarMapa(mapa, 1);
+    jogador = inicializarJogador(mapa);
 
     while (!WindowShouldClose()) {
+
+        if (opcao == ENTRAR_JOGO)
+            atualizarJogador(&jogador, mapa);
         BeginDrawing();
         ClearBackground(GRAY);
 
@@ -29,6 +35,7 @@ int main() {
 
         if (opcao == ENTRAR_JOGO) {
         desenharMapa(mapa);
+        desenharJogador(jogador);
         }
         else if (opcao == ENTRA_RANKING){
             DrawText("Ainda sem ranking", LARGURA_TELA/2 - MeasureText("Ainda sem ranking", 40)/2, ALTURA_TELA/2 - 20, 40, BLACK);

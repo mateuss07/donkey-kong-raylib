@@ -1,8 +1,9 @@
-#include "mapa.h"
 #include <stdio.h>
 #include <raylib.h>
 #include "constantes.h"
 #include <string.h>
+#include "mapa.h"
+
 
 void carregarMapa(char mapa[LINHAS][COLUNAS], int fase)
 {

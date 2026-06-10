@@ -1,4 +1,4 @@
-#include "raylib.h"
+#include <raylib.h>
 #include "constantes.h"
 
 typedef struct
@@ -6,8 +6,8 @@ typedef struct
     int linha;
     int coluna;
     int ativo;
-} JOGADOR;
+} JOGADOR_S;
 
-JOGADOR inicializarJogador(char mapa[LINHAS][COLUNAS]);
-void atualizarJogador(JOGADOR *jogador, char mapa[LINHAS][COLUNAS]);
-void desenharJogador(JOGADOR jogador);
+JOGADOR_S inicializarJogador(char mapa[LINHAS][COLUNAS]);
+void atualizarJogador(JOGADOR_S *jogador, char mapa[LINHAS][COLUNAS]);
+void desenharJogador(JOGADOR_S jogador);

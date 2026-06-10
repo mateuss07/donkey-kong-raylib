@@ -2,16 +2,16 @@
 #include <raylib.h>
 #include "constantes.h"
 
-JOGADOR inicializarJogador(char mapa[LINHAS][COLUNAS])
+JOGADOR_S inicializarJogador(char mapa[LINHAS][COLUNAS])
 {
-    JOGADOR j;
+    JOGADOR_S j;
     j.ativo = 1;
 
     for (int i = 0; i < LINHAS; i++)
     {
         for (int k = 0; k < COLUNAS; k++)
         {
-            if (mapa[i][k] == JOGADOR_CHAR)
+            if (mapa[i][k] == JOGADOR)
             {
                 j.linha = i;
                 j.coluna = k;
@@ -20,7 +20,7 @@ JOGADOR inicializarJogador(char mapa[LINHAS][COLUNAS])
     }
     return j;
 }
-void desenharJogador(JOGADOR j)
+void desenharJogador(JOGADOR_S j)
 {
     int x, y;
     x = j.coluna * TAMANHO;
@@ -28,46 +28,41 @@ void desenharJogador(JOGADOR j)
     DrawRectangle(x, y, TAMANHO, TAMANHO, BLUE);
 }
 
-void atualizarJogador(JOGADOR *j, char mapa[LINHAS][COLUNAS])
+void atualizarJogador(JOGADOR_S *j, char mapa[LINHAS][COLUNAS])
 {
-    int novalinha, novacoluna, chaoabaixo, escadasubir, escadadescer;
+    int novalinha, novacoluna, chaoabaixo, escadasubir, escadadescer, naescada;
     char celulaatual;
 
     novalinha = j->linha;
     novacoluna = j->coluna;
     celulaatual = mapa[j->linha][j->coluna];
-    chaoabaixo = (((j->linha + 1) < LINHAS) && (mapa[j->linha + 1][j->coluna] == PLATAFORMA));
-    escadasubir = (celulaatual == ESCADA_SUBIR);
+    chaoabaixo = (((j->linha + 1) < LINHAS) && (mapa[j->linha + 1][j->coluna] == PLATAFORMA ||
+    mapa[j->linha + 1][j->coluna] == ESCADA_SUBIR ||
+    mapa[j->linha + 1][j->coluna] == ESCADA_DESCER));
+
+    escadasubir = (celulaatual == ESCADA_SUBIR || 
+              (chaoabaixo && mapa[j->linha + 1][j->coluna] == ESCADA_SUBIR));
     escadadescer = (celulaatual == ESCADA_DESCER);
-    if ((IsKeyPressed(KEY_RIGHT) || IsKeyPressed(KEY_D)) && chaoabaixo)
+
+
+    if ((IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) && chaoabaixo)
         novacoluna++;
-    else if ((IsKeyPressed(KEY_LEFT) || IsKeyPressed(KEY_A)) && chaoabaixo)
+    else if ((IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A)) && chaoabaixo)
         novacoluna--;
 
-    if ((IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_W)) && escadasubir)
-    {
-        for (int i = j->linha - 1; i >= 0; i--)
-        {
-            if (mapa[i][j->coluna] == ESCADA_DESCER)
-            {
-                novalinha = i;
-                break;
-            }
-        }
-    }
+    if ((IsKeyDown(KEY_UP) || IsKeyDown(KEY_W)) && escadasubir)
+{
+    if (novalinha - 1 >= 0 && (mapa[novalinha - 1][j->coluna] == ESCADA_SUBIR  ||
+        mapa[novalinha - 1][j->coluna] == ESCADA_DESCER ||
+        mapa[novalinha - 1][j->coluna] == PLATAFORMA))
+        novalinha--;
 
-    if ((IsKeyPressed(KEY_DOWN) || IsKeyPressed(KEY_S)) && escadadescer)
-    {
-        for (int i = j->linha + 1; i < LINHAS; i++)
-        {
-            if (mapa[i][j->coluna] == ESCADA_SUBIR)
-            {
-                novalinha = i;
-                break;
-            }
-        }
-    }
-
+}
+    if ((IsKeyDown(KEY_DOWN) || IsKeyDown(KEY_S)) && escadadescer)
+{
+    if (novalinha + 1 < LINHAS && (mapa[novalinha + 1][j->coluna] == ESCADA_DESCER || mapa[novalinha + 1][j->coluna] == PLATAFORMA || mapa[novalinha + 1][j->coluna] == ESCADA_SUBIR))
+        novalinha++;
+}
     if ((novalinha >= 0 && novalinha < LINHAS) && (novacoluna >= 0 && novacoluna < COLUNAS) && (mapa[novalinha][novacoluna] != PLATAFORMA))
     {
         j->linha = novalinha;

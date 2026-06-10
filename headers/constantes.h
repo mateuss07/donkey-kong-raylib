@@ -14,11 +14,11 @@
 //MAPA
 #define LINHAS          30
 #define COLUNAS         30
-#define TAMANHO   20
+#define TAMANHO         20
 
 //CARACTERES DO MAPA
-#define JOGADOR     'P'
-#define INIMIGO     'E'
+#define JOGADOR 'P'
+#define INIMIGO 'E'
 #define PLATAFORMA  'Z'
 #define ESCADA_SUBIR    'S'
 #define ESCADA_DESCER    'D'
