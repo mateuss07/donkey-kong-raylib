@@ -14,6 +14,8 @@ void carregarMapa(char mapa[LINHAS][COLUNAS], int fase)
         strcpy(nomeArquivo, "mapas/mapa1.txt");
     else if (fase == 2)
         strcpy(nomeArquivo, "mapas/mapa2.txt");
+    else if (fase == 3)
+        strcpy(nomeArquivo, "mapas/mapa3.txt");
 
     mapa_f = fopen(nomeArquivo, "r");
 

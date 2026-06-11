@@ -23,6 +23,7 @@ int verificaPorta(JOGADOR_S jogador, char mapa[LINHAS][COLUNAS]) {
 
 int main()
 {
+    int nivel = 1;
     INIMIGO_S inimigos[MAX_INIMIGOS];
     JOGADOR_S jogador;
     int opcao = MENU, qtd;
@@ -32,7 +33,7 @@ int main()
     SetExitKey(KEY_L); //retira a saída padrão do raylib no esc e coloca no L
     SetTargetFPS(FPS);
 
-    carregarMapa(mapa, 1);
+    carregarMapa(mapa, nivel);
     jogador = inicializarJogador(mapa);
     qtd = inicializarInimigos(inimigos, mapa);
 
@@ -65,9 +66,16 @@ while (!WindowShouldClose())
             if (verificaPorta(jogador, mapa)) {
                 // Logica para lidar com a entrada na porta
                 // Por exemplo, você pode carregar um novo mapa ou avançar para o próximo nível
-                carregarMapa(mapa, 2); // Carrega um novo mapa
+                if (nivel < MAX_NIVEIS) {
+                nivel++;// Avança para o próximo nível
+                carregarMapa(mapa, nivel); // Carrega um novo mapa
                 jogador = inicializarJogador(mapa); // Reinicializa o jogador no novo mapa
                 qtd = inicializarInimigos(inimigos, mapa); // Reinicializa os inimigos no novo mapa
+                }
+                else
+                {
+                    opcao = VITORIA; // Exibe tela de vitória ou reinicia o jogo
+                }
            }
         }
     }
@@ -86,6 +94,15 @@ while (!WindowShouldClose())
                 opcao = MENU;
         }
         else if(opcao == GAME_OVER){
+            if (IsKeyPressed(KEY_ESCAPE))
+                opcao = MENU;
+            if (IsKeyPressed(KEY_L))
+                opcao = SAIR;
+            if (IsKeyPressed(KEY_M))
+                opcao = ENTRAR_JOGO;
+        }
+
+        else if(opcao == VITORIA){
             if (IsKeyPressed(KEY_ESCAPE))
                 opcao = MENU;
             if (IsKeyPressed(KEY_L))
@@ -122,6 +139,9 @@ while (!WindowShouldClose())
 
     else if(opcao == GAME_OVER){
         desenharGameOver();
+    }
+    else if(opcao == VITORIA){
+        desenharVitoria();
     }
 
     else if(opcao == ENTRA_RANKING){

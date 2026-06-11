@@ -29,8 +29,8 @@ void desenharGameOver(){
 }
 void desenharVitoria(){
         DrawRectangle(0, 0, LARGURA_TELA, ALTURA_TELA, Fade(BLACK, 0.7f));
-        DrawText("VOCÊ VENCEU!", LARGURA_TELA/2 - MeasureText("VOCÊ VENCEU!", 40)/2, ALTURA_TELA/2 - 40, 40, BLACK);
+        DrawText("VOCÊ VENCEU!", LARGURA_TELA/2 - MeasureText("VOCÊ VENCEU!", 40)/2, ALTURA_TELA/2 - 40, 40, GREEN);
         DrawText("L - Sair do Jogo", LARGURA_TELA/2 - MeasureText("L - Sair do Jogo", 24)/2, ALTURA_TELA/2 + 20, 24, BLUE);
-        DrawText("E - Ranking", LARGURA_TELA/2 - MeasureText("E - Ranking", 24)/2, ALTURA_TELA/2 + 50, 24, BLUE);
+        DrawText("M - Novo Jogo", LARGURA_TELA/2 - MeasureText("M - Novo Jogo", 24)/2, ALTURA_TELA/2 + 50, 24, BLUE);
         DrawText("ESC - Retornar ao Menu", LARGURA_TELA/2 - MeasureText("ESC - Retornar ao Menu", 24)/2, ALTURA_TELA/2 + 80, 24, BLUE);
 }

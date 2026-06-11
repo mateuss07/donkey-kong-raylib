@@ -12,6 +12,7 @@
 #define SAIR 3
 #define PAUSA 4
 #define GAME_OVER 5
+#define VITORIA 6
 
 // MAPA
 #define LINHAS 30
@@ -40,3 +41,6 @@
 //PORTA
 #define PORTA_LINHA 0
 #define PORTA_COLUNA 2
+
+//NIVEIS
+#define MAX_NIVEIS 3
