@@ -38,12 +38,12 @@ void atualizarJogador(JOGADOR_S *j, char mapa[LINHAS][COLUNAS])
     celulaatual = mapa[j->linha][j->coluna];
 
     chaoabaixo = (((j->linha + 1) < LINHAS) && (mapa[j->linha + 1][j->coluna] == PLATAFORMA));
-    escadasubir  = (celulaatual == ESCADA_SUBIR);
+    escadasubir = (celulaatual == ESCADA_SUBIR);
     escadadescer = (celulaatual == ESCADA_DESCER);
-    naescada     = (celulaatual == ESCADA_VAZIA);
+    naescada = (celulaatual == ESCADA_VAZIA);
     podeandar = (chaoabaixo || escadadescer);
     semburaconadireita = (mapa[j->linha + 1][j->coluna + 1] != VAZIO);
-    semburaconaesquerda = (mapa[j->linha + 1][j->coluna -1] != VAZIO);
+    semburaconaesquerda = (mapa[j->linha + 1][j->coluna - 1] != VAZIO);
 
     if ((IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) && podeandar && semburaconadireita)
         novacoluna++;
@@ -53,14 +53,14 @@ void atualizarJogador(JOGADOR_S *j, char mapa[LINHAS][COLUNAS])
     if ((IsKeyDown(KEY_UP) || IsKeyDown(KEY_W)) && (escadasubir || naescada))
     {
         if (novalinha - 1 >= 0 && (mapa[novalinha - 1][j->coluna] == ESCADA_VAZIA ||
-            mapa[novalinha - 1][j->coluna] == ESCADA_DESCER))
+                                   mapa[novalinha - 1][j->coluna] == ESCADA_DESCER))
             novalinha--;
     }
 
     if ((IsKeyDown(KEY_DOWN) || IsKeyDown(KEY_S)) && (escadadescer || naescada))
     {
         if (novalinha + 1 < LINHAS && (mapa[novalinha + 1][j->coluna] == ESCADA_VAZIA ||
-            mapa[novalinha + 1][j->coluna] == ESCADA_SUBIR))
+                                       mapa[novalinha + 1][j->coluna] == ESCADA_SUBIR))
             novalinha++;
     }
 
