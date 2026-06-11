@@ -4,6 +4,8 @@
 #include "jogador.h"
 #include "inimigo.h"
 #include "constantes.h"
+
+
 int verificarMorte(JOGADOR_S jogador, INIMIGO_S inimigos[], int qtd) {
     for (int i = 0; i < qtd; i++) {
         if (jogador.coluna == inimigos[i].coluna && jogador.linha == inimigos[i].linha) {
@@ -29,9 +31,12 @@ int main()
     int opcao = MENU, qtd;
     char mapa[LINHAS][COLUNAS];
 
+
     InitWindow(LARGURA_TELA, ALTURA_TELA, TITULO_JANELA);
     SetExitKey(KEY_L); //retira a saída padrão do raylib no esc e coloca no L
     SetTargetFPS(FPS);
+
+    Texture2D texturaEscada = LoadTexture("sprites/escada2.png");
 
     carregarMapa(mapa, nivel);
     jogador = inicializarJogador(mapa);
@@ -112,6 +117,7 @@ while (!WindowShouldClose())
         }
 
         else if (opcao == SAIR) {
+            UnloadTexture(texturaEscada);
             CloseWindow();
             return 0;
         }
@@ -126,12 +132,12 @@ while (!WindowShouldClose())
     if (opcao == MENU)
         desenharMenu();
     else if(opcao == ENTRAR_JOGO){
-        desenharMapa(mapa);
+        desenharMapa(mapa, texturaEscada);
         desenharJogador(jogador);
         desenharInimigos(inimigos, qtd);
     }
     else if(opcao == PAUSA){
-        desenharMapa(mapa);
+        desenharMapa(mapa, texturaEscada);
         desenharJogador(jogador);
         desenharInimigos(inimigos, qtd);
         desenharPausa();
@@ -150,6 +156,7 @@ while (!WindowShouldClose())
     EndDrawing();
 }
 
+UnloadTexture(texturaEscada);
 CloseWindow();
 return 0;
 }

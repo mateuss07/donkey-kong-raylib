@@ -33,7 +33,7 @@ void carregarMapa(char mapa[LINHAS][COLUNAS], int fase)
     }
 }
 
-void desenharMapa(char mapa[LINHAS][COLUNAS])
+void desenharMapa(char mapa[LINHAS][COLUNAS], Texture2D texturaEscada)
 {
     int x, y;
 
@@ -47,7 +47,7 @@ void desenharMapa(char mapa[LINHAS][COLUNAS])
             if (mapa[i][j] == PLATAFORMA)
                 DrawRectangle(x, y, TAMANHO, TAMANHO, BLACK);
             else if (mapa[i][j] == ESCADA_VAZIA || mapa[i][j] == ESCADA_SUBIR)
-                DrawRectangle(x, y, TAMANHO, TAMANHO, YELLOW);
+                DrawTexture(texturaEscada, x, y, WHITE);
             else if (mapa[i][j] == PORTA)
                 DrawRectangle(x, y, TAMANHO, TAMANHO, GREEN);
         }
