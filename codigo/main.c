@@ -29,7 +29,7 @@ int main() {
             opcao = ENTRAR_JOGO;
         if (IsKeyPressed(KEY_E))     
             opcao = ENTRA_RANKING;
-        if (IsKeyPressed(KEY_ESCAPE)) 
+        if (IsKeyPressed(KEY_F4)) 
             opcao = SAIR;
         }
 

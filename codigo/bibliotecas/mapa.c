@@ -44,12 +44,8 @@ void desenharMapa(char mapa[LINHAS][COLUNAS])
 
             if (mapa[i][j] == PLATAFORMA)
                 DrawRectangle(x, y, TAMANHO, TAMANHO, BLACK);
-            else if (mapa[i][j] == ESCADA_VAZIA)
-                DrawRectangle(x, y, TAMANHO, TAMANHO, RAYWHITE);
-            else if (mapa[i][j] == ESCADA_SUBIR)
+            else if (mapa[i][j] == ESCADA_VAZIA || mapa[i][j] == ESCADA_SUBIR)
                 DrawRectangle(x, y, TAMANHO, TAMANHO, YELLOW);
-            else if (mapa[i][j] == ESCADA_DESCER)
-                DrawRectangle(x, y, TAMANHO, TAMANHO, RED);
             else if (mapa[i][j] == PORTA)
                 DrawRectangle(x, y, TAMANHO, TAMANHO, GREEN);
         }
