@@ -1,10 +1,10 @@
-  F                 D         
-ZZZZZZZZZZZZZZZZZZZZHZZZZZZZZZ
-                    H         
-                    H         
-                    H         
-                    H         
-  D     E           S         
+  F           D               
+ZZZZZZZZZZZZZZHZZZZZZZZZZZZZZZ
+              H               
+              H               
+              H               
+              H               
+  D     E     S               
 ZZHZZZZZZZZZZZZZZZZZZZZZZZZZZZ
   H                           
   H                           

@@ -14,11 +14,10 @@ void desenharMenu(){
 
 void desenharPausa(){
         DrawRectangle(0, 0, LARGURA_TELA, ALTURA_TELA, Fade(BLACK, 0.7f));
-        DrawText("PAUSA", LARGURA_TELA/2 - MeasureText("PAUSA", 40)/2, ALTURA_TELA/2 - 60, 40, RAYWHITE);
+        DrawText("PAUSA", LARGURA_TELA/2 - MeasureText("PAUSA", 40)/2, ALTURA_TELA/2 - 70, 40, RAYWHITE);
         DrawText("L - Sair do Jogo", LARGURA_TELA/2 - MeasureText("L - Sair do Jogo", 24)/2, ALTURA_TELA/2 + 0, 24, BLUE);
-        DrawText("E - Ranking", LARGURA_TELA/2 - MeasureText("E - Ranking", 24)/2, ALTURA_TELA/2 + 30, 24, BLUE);
-        DrawText("ESC - Retornar ao Menu", LARGURA_TELA/2 - MeasureText("ESC - Retornar ao Menu", 24)/2, ALTURA_TELA/2 + 60, 24, BLUE);
-        DrawText("M - Continuar", LARGURA_TELA/2 - MeasureText("M - Continuar", 24)/2, ALTURA_TELA/2 + 90, 24, BLUE);
+        DrawText("ESC - Retornar ao Menu", LARGURA_TELA/2 - MeasureText("ESC - Retornar ao Menu", 24)/2, ALTURA_TELA/2 + 35, 24, BLUE);
+        DrawText("M - Continuar", LARGURA_TELA/2 - MeasureText("M - Continuar", 24)/2, ALTURA_TELA/2 + 70, 24, BLUE);
 }
 void desenharGameOver(){
         DrawRectangle(0, 0, LARGURA_TELA, ALTURA_TELA, Fade(BLACK, 0.7f));

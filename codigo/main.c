@@ -48,8 +48,13 @@ while (!WindowShouldClose())
         //RENDERIZAÇÃO:
 
         if (opcao == MENU) {
-            if (IsKeyPressed(KEY_ENTER)) 
+            if (IsKeyPressed(KEY_ENTER)){
+                nivel = 1;
+                carregarMapa(mapa, 1); // Carrega o mapa do primeiro nível
+                jogador = inicializarJogador(mapa); // Reinicializa o jogador no mapa
+                qtd = inicializarInimigos(inimigos, mapa); // Reinicializa os inimigos no mapa
                 opcao = ENTRAR_JOGO;
+            }
             if (IsKeyPressed(KEY_E))     
                 opcao = ENTRA_RANKING;
             if (IsKeyPressed(KEY_L))
@@ -103,8 +108,13 @@ while (!WindowShouldClose())
                 opcao = MENU;
             if (IsKeyPressed(KEY_L))
                 opcao = SAIR;
-            if (IsKeyPressed(KEY_M))
+            if (IsKeyPressed(KEY_M)){
+                nivel = 1;
+                carregarMapa(mapa, 1); // Carrega o mapa do primeiro nível
+                jogador = inicializarJogador(mapa); // Reinicializa o jogador no mapa
+                qtd = inicializarInimigos(inimigos, mapa); // Reinicializa os inimigos no mapa
                 opcao = ENTRAR_JOGO;
+            }
         }
 
         else if(opcao == VITORIA){
