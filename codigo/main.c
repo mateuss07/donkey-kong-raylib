@@ -126,6 +126,9 @@ int main()
                     else
                     {
                         opcao = VITORIA; // Exibe tela de vitória ou reinicia o jogo
+                        if(tempo_jogo < placar[qtd_placar-1].time || qtd_placar<10){
+                            entra_ranking = 1;
+                        }
                     }
                 }
             }
@@ -148,35 +151,40 @@ int main()
         }
         else if (opcao == GAME_OVER)
         {
-            if (IsKeyPressed(KEY_ESCAPE))
+            if(entra_ranking == 0){
+                if (IsKeyPressed(KEY_ESCAPE))
                 opcao = MENU;
-            if (IsKeyPressed(KEY_L))
+                if (IsKeyPressed(KEY_L))
                 opcao = SAIR;
-            if (IsKeyPressed(KEY_M))
-            {
-                tempo_jogo = 0.0f;
-                nivel = 1;
-                carregarMapa(mapa, 1);                     // Carrega o mapa do primeiro nível
-                jogador = inicializarJogador(mapa);        // Reinicializa o jogador no mapa
-                qtd = inicializarInimigos(inimigos, mapa); // Reinicializa os inimigos no mapa
-                opcao = ENTRAR_JOGO;
+                if (IsKeyPressed(KEY_M))
+                {
+                    tempo_jogo = 0.0f;
+                    nivel = 1;
+                    carregarMapa(mapa, 1);                     // Carrega o mapa do primeiro nível
+                    jogador = inicializarJogador(mapa);        // Reinicializa o jogador no mapa
+                    qtd = inicializarInimigos(inimigos, mapa); // Reinicializa os inimigos no mapa
+                    opcao = ENTRAR_JOGO;
+                }
             }
         }
 
         else if (opcao == VITORIA)
         {
-            if (IsKeyPressed(KEY_ESCAPE))
-                opcao = MENU;
-            if (IsKeyPressed(KEY_L))
-                opcao = SAIR;
-            if (IsKeyPressed(KEY_M))
-            {
-                tempo_jogo = 0.0f;
-                nivel = 1;
-                carregarMapa(mapa, 1);                     // Carrega o mapa do primeiro nível
-                jogador = inicializarJogador(mapa);        // Reinicializa o jogador no mapa
-                qtd = inicializarInimigos(inimigos, mapa); // Reinicializa os inimigos no mapa
-                opcao = ENTRAR_JOGO;
+            if(entra_ranking == 0){
+
+                if (IsKeyPressed(KEY_ESCAPE))
+                    opcao = MENU;
+                if (IsKeyPressed(KEY_L))
+                    opcao = SAIR;
+                if (IsKeyPressed(KEY_M))
+                {
+                    tempo_jogo = 0.0f;
+                    nivel = 1;
+                    carregarMapa(mapa, 1);                     // Carrega o mapa do primeiro nível
+                    jogador = inicializarJogador(mapa);        // Reinicializa o jogador no mapa
+                    qtd = inicializarInimigos(inimigos, mapa); // Reinicializa os inimigos no mapa
+                    opcao = ENTRAR_JOGO;
+                }
             }
         }
 
@@ -186,6 +194,7 @@ int main()
             UnloadTexture(texturaJogador);
             UnloadTexture(texturaInimigo);
             UnloadTexture(texturaPorta);
+            UnloadTexture(texturaVida);
             CloseWindow();
             return 0;
         }
@@ -206,8 +215,9 @@ int main()
             desenharFase(nivel);
 
     
-            for (int i=0;i<jogador.vidas;i++) {
-    DrawTexture(texturaVida, 10 + (i * 35), 10, WHITE); // Desenha os coracoes no canto esquerdo da tela
+            for (int i = 0; i < jogador.vidas; i++)
+{
+    DrawTextureEx(texturaVida, (Vector2){10 + (i * 25), 30}, 0, 0.5f, WHITE);
 }
         }
         else if (opcao == PAUSA)
@@ -220,10 +230,26 @@ int main()
 
         else if (opcao == GAME_OVER)
         {
-            desenharGameOver();
+            if(entra_ranking == 1){
+                if(desenhar_entrada_nome(nome) == 1){
+                    inserir_no_placar(placar, &qtd_placar, nome, (int)tempo_jogo);
+                    salvar_placar(placar, qtd_placar);
+                    entra_ranking=0;
+                }
+            }
+            else
+                desenharGameOver();
         }
         else if (opcao == VITORIA)
         {
+            if(entra_ranking == 1){
+                if(desenhar_entrada_nome(nome) == 1){
+                    inserir_no_placar(placar, &qtd_placar, nome, (int)tempo_jogo);
+                    salvar_placar(placar, qtd_placar);
+                    entra_ranking=0;
+                }
+            }
+            else
             desenharVitoria();
         }
 
