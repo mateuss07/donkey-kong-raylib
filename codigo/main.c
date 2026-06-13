@@ -5,6 +5,15 @@
 #include "inimigo.h"
 #include "constantes.h"
 
+void desenharTempo(float tempo){
+    DrawText(TextFormat("Tempo: %ds", (int)tempo), LARGURA_TELA - MeasureText(TextFormat("Tempo: %ds", (int)tempo), 22) - 2, 22, 22, BLACK);
+    DrawText(TextFormat("Tempo: %ds", (int)tempo), LARGURA_TELA - MeasureText(TextFormat("Tempo: %ds", (int)tempo), 22) - 3, 21, 22, WHITE);
+}
+void desenharFase(int nivel) {
+    DrawText(TextFormat("Fase: %d", nivel), LARGURA_TELA - MeasureText(TextFormat("Fase: %d", nivel), 22) - 2, 2, 22, BLACK);
+    DrawText(TextFormat("Fase: %d", nivel), LARGURA_TELA - MeasureText(TextFormat("Fase: %d", nivel), 22) - 3, 1, 22, WHITE);
+}
+
 
 int verificarMorte(JOGADOR_S jogador, INIMIGO_S inimigos[], int qtd) {
     for (int i = 0; i < qtd; i++) {
@@ -30,6 +39,7 @@ int main()
     JOGADOR_S jogador;
     int opcao = MENU, qtd;
     char mapa[LINHAS][COLUNAS];
+    float tempo_jogo = 0.0f;
 
 
     InitWindow(LARGURA_TELA, ALTURA_TELA, TITULO_JANELA);
@@ -37,6 +47,8 @@ int main()
     SetTargetFPS(FPS);
 
     Texture2D texturaEscada = LoadTexture("sprites/escada2.png");
+    Texture2D texturaJogador = LoadTexture("sprites/personagem(1).png");
+    Texture2D texturaInimigo = LoadTexture("sprites/inimigo.png");
 
     carregarMapa(mapa, nivel);
     jogador = inicializarJogador(mapa);
@@ -49,6 +61,7 @@ while (!WindowShouldClose())
 
         if (opcao == MENU) {
             if (IsKeyPressed(KEY_ENTER)){
+                tempo_jogo = 0.0f;
                 nivel = 1;
                 carregarMapa(mapa, 1); // Carrega o mapa do primeiro nível
                 jogador = inicializarJogador(mapa); // Reinicializa o jogador no mapa
@@ -67,6 +80,7 @@ while (!WindowShouldClose())
            else {
             atualizarJogador(&jogador, mapa);
             atualizarInimigos(inimigos, qtd, mapa);
+            tempo_jogo += GetFrameTime();
 
             if (verificarMorte(jogador, inimigos, qtd)) {
                 // Logica para lidar com a morte do jogador
@@ -109,6 +123,7 @@ while (!WindowShouldClose())
             if (IsKeyPressed(KEY_L))
                 opcao = SAIR;
             if (IsKeyPressed(KEY_M)){
+                tempo_jogo = 0.0f;
                 nivel = 1;
                 carregarMapa(mapa, 1); // Carrega o mapa do primeiro nível
                 jogador = inicializarJogador(mapa); // Reinicializa o jogador no mapa
@@ -122,12 +137,20 @@ while (!WindowShouldClose())
                 opcao = MENU;
             if (IsKeyPressed(KEY_L))
                 opcao = SAIR;
-            if (IsKeyPressed(KEY_M))
+            if (IsKeyPressed(KEY_M)){
+                tempo_jogo = 0.0f;
+                nivel = 1;
+                carregarMapa(mapa, 1); // Carrega o mapa do primeiro nível
+                jogador = inicializarJogador(mapa); // Reinicializa o jogador no mapa
+                qtd = inicializarInimigos(inimigos, mapa); // Reinicializa os inimigos no mapa
                 opcao = ENTRAR_JOGO;
+            }
         }
 
         else if (opcao == SAIR) {
             UnloadTexture(texturaEscada);
+            UnloadTexture(texturaJogador);
+            UnloadTexture(texturaInimigo);
             CloseWindow();
             return 0;
         }
@@ -145,6 +168,10 @@ while (!WindowShouldClose())
         desenharMapa(mapa, texturaEscada);
         desenharJogador(jogador);
         desenharInimigos(inimigos, qtd);
+        desenharTempo(tempo_jogo);
+        desenharFase(nivel);
+        
+
     }
     else if(opcao == PAUSA){
         desenharMapa(mapa, texturaEscada);
