@@ -10,4 +10,4 @@ typedef struct {
 
 int inicializarInimigos(INIMIGO_S inimigos[], char mapa[LINHAS][COLUNAS]);
 void atualizarInimigos(INIMIGO_S inimigos[], int qtd, char mapa[LINHAS][COLUNAS]);
-void desenharInimigos(INIMIGO_S inimigos[], int qtd);
+void desenharInimigos(INIMIGO_S inimigos[], int qtd, Texture2D texturaInimigo);

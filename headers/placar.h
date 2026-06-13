@@ -8,8 +8,8 @@ typedef struct {
 }TIPO_PLACAR;
 
 int carregar_placar(TIPO_PLACAR placar[]);
-int salvar_placar(TIPO_PLACAR placar[], int qtd);
+void salvar_placar(TIPO_PLACAR placar[], int qtd);
 void desenhar_ranking(TIPO_PLACAR placar[], int qtd);
 void desenhar_entrada_nome(char nome[]);
-int inserir_no_ranking(TIPO_PLACAR placar[], int *qtd, char nome);
+int inserir_no_ranking(TIPO_PLACAR placar[], int *qtd, char nome[], int tempo);
 

@@ -20,12 +20,12 @@ JOGADOR_S inicializarJogador(char mapa[LINHAS][COLUNAS])
     }
     return j;
 }
-void desenharJogador(JOGADOR_S j)
+void desenharJogador(JOGADOR_S j, Texture2D texturaJogador)
 {
     int x, y;
     x = j.coluna * TAMANHO;
     y = j.linha * TAMANHO;
-    DrawTexture(LoadTexture("sprites/personagem.png"), x, y, WHITE);
+    DrawTexture(texturaJogador, x, y, WHITE);
 }
 
 void atualizarJogador(JOGADOR_S *j, char mapa[LINHAS][COLUNAS])

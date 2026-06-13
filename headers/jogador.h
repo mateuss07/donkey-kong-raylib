@@ -10,4 +10,4 @@ typedef struct
 
 JOGADOR_S inicializarJogador(char mapa[LINHAS][COLUNAS]);
 void atualizarJogador(JOGADOR_S *jogador, char mapa[LINHAS][COLUNAS]);
-void desenharJogador(JOGADOR_S jogador);
+void desenharJogador(JOGADOR_S jogador, Texture2D texturaJogador);

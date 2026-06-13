@@ -38,12 +38,12 @@ void atualizarInimigos(INIMIGO_S inimigos[], int qtd, char mapa[LINHAS][COLUNAS]
     }
 }
 
-void desenharInimigos(INIMIGO_S inimigos[], int qtd){
+void desenharInimigos(INIMIGO_S inimigos[], int qtd, Texture2D texturaInimigo){
     int x, y;
     for (int i=0;i<qtd;i++)
     {
         x = inimigos[i].coluna * TAMANHO;
         y = inimigos[i].linha * TAMANHO;
-        DrawTexture(LoadTexture("sprites/inimigo.png"), x, y, WHITE);
+        DrawTexture(texturaInimigo, x, y, WHITE);
     }
 }

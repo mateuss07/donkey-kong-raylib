@@ -33,7 +33,7 @@ void carregarMapa(char mapa[LINHAS][COLUNAS], int fase)
     }
 }
 
-void desenharMapa(char mapa[LINHAS][COLUNAS], Texture2D texturaEscada)
+void desenharMapa(char mapa[LINHAS][COLUNAS], Texture2D texturaEscada, Texture2D texturaPorta)
 {
     int x, y;
 
@@ -49,7 +49,7 @@ void desenharMapa(char mapa[LINHAS][COLUNAS], Texture2D texturaEscada)
             else if (mapa[i][j] == ESCADA_VAZIA || mapa[i][j] == ESCADA_SUBIR)
                 DrawTexture(texturaEscada, x, y, WHITE);
             else if (mapa[i][j] == PORTA)
-                DrawTexture(LoadTexture("sprites/porta.png"), x, y, WHITE);
+                DrawTexture(texturaPorta, x, y, WHITE);
         }
     }
 }

@@ -35,12 +35,16 @@ void salvar_placar(TIPO_PLACAR placar[], int qtd){
     }
 }
 
-int inserir_no_ranking(TIPO_PLACAR placar[], int *qtd, char nome[]){
+int inserir_no_ranking(TIPO_PLACAR placar[], int *qtd, char nome[], int tempo){
     
-
-    
+    if(*qtd==10 && tempo>=placar[*qtd-1].time){
+        strcpy(placar[*qtd].nome, nome);
+        placar[*qtd].time = tempo;
+        (*qtd)++;
+        return 0;
+        }
+    else i
 }
-
 
 
 void desenhar_ranking(TIPO_PLACAR placar[], int qtd){

@@ -167,18 +167,18 @@ while (!WindowShouldClose())
     if (opcao == MENU)
         desenharMenu();
     else if(opcao == ENTRAR_JOGO){
-        desenharMapa(mapa, texturaEscada);
-        desenharJogador(jogador);
-        desenharInimigos(inimigos, qtd);
+        desenharMapa(mapa, texturaEscada, texturaPorta);
+        desenharJogador(jogador, texturaJogador);
+        desenharInimigos(inimigos, qtd, texturaInimigo);
         desenharTempo(tempo_jogo);
         desenharFase(nivel);
         
 
     }
     else if(opcao == PAUSA){
-        desenharMapa(mapa, texturaEscada);
-        desenharJogador(jogador);
-        desenharInimigos(inimigos, qtd);
+        desenharMapa(mapa, texturaEscada, texturaPorta);
+        desenharJogador(jogador, texturaJogador);
+        desenharInimigos(inimigos, qtd, texturaInimigo);
         desenharPausa();
     }
 
