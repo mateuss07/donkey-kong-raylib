@@ -122,7 +122,7 @@ int main()
                     }
                     else
                     {
-                        opcao = VITORIA; // Exibe tela de vitória ou reinicia o jogo
+                        opcao = VITORIA; // Exibe tela de vitória
                         if(tempo_jogo < placar[qtd_placar-1].time || qtd_placar<10){
                             entra_ranking = 1;
                         }
