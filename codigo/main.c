@@ -49,6 +49,7 @@ int main()
     Texture2D texturaEscada = LoadTexture("sprites/escada2.png");
     Texture2D texturaJogador = LoadTexture("sprites/personagem.png");
     Texture2D texturaInimigo = LoadTexture("sprites/inimigo.png");
+    Texture2D texturaPorta = LoadTexture("sprites/porta.png");
 
     carregarMapa(mapa, nivel);
     jogador = inicializarJogador(mapa);
@@ -151,6 +152,7 @@ while (!WindowShouldClose())
             UnloadTexture(texturaEscada);
             UnloadTexture(texturaJogador);
             UnloadTexture(texturaInimigo);
+            UnloadTexture(texturaPorta);
             CloseWindow();
             return 0;
         }
@@ -196,6 +198,7 @@ while (!WindowShouldClose())
 UnloadTexture(texturaEscada);
 UnloadTexture(texturaJogador);
 UnloadTexture(texturaInimigo);
+UnloadTexture(texturaPorta);
 CloseWindow();
 return 0;
 }

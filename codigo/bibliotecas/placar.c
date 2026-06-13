@@ -37,6 +37,8 @@ void salvar_placar(TIPO_PLACAR placar[], int qtd){
 
 int inserir_no_ranking(TIPO_PLACAR placar[], int *qtd, char nome[]){
     
+
+    
 }
 
 

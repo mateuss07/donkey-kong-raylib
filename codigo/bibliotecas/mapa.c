@@ -49,7 +49,7 @@ void desenharMapa(char mapa[LINHAS][COLUNAS], Texture2D texturaEscada)
             else if (mapa[i][j] == ESCADA_VAZIA || mapa[i][j] == ESCADA_SUBIR)
                 DrawTexture(texturaEscada, x, y, WHITE);
             else if (mapa[i][j] == PORTA)
-                DrawRectangle(x, y, TAMANHO, TAMANHO, GREEN);
+                DrawTexture(LoadTexture("sprites/porta.png"), x, y, WHITE);
         }
     }
 }

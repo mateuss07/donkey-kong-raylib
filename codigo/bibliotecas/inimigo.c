@@ -44,6 +44,6 @@ void desenharInimigos(INIMIGO_S inimigos[], int qtd){
     {
         x = inimigos[i].coluna * TAMANHO;
         y = inimigos[i].linha * TAMANHO;
-        DrawTriangle((Vector2){x + TAMANHO/2, y}, (Vector2){x, y + TAMANHO}, (Vector2){x + TAMANHO, y + TAMANHO}, WHITE);
+        DrawTexture(LoadTexture("sprites/inimigo.png"), x, y, WHITE);
     }
 }
