@@ -6,6 +6,7 @@ JOGADOR_S inicializarJogador(char mapa[LINHAS][COLUNAS])
 {
     JOGADOR_S j;
     j.ativo = 1;
+    j.vidas = 3;
 
     for (int i = 0; i < LINHAS; i++)
     {
@@ -68,5 +69,16 @@ void atualizarJogador(JOGADOR_S *j, char mapa[LINHAS][COLUNAS])
     {
         j->linha = novalinha;
         j->coluna = novacoluna;
+    }
+}
+void perdevida(JOGADOR_S *j, char mapa[LINHAS][COLUNAS]) {
+    int temp;
+    j->vidas--;
+    if (j->vidas <= 0) {
+        j->ativo = 0;
+    } else {
+        temp = j->vidas;
+        *j = inicializarJogador(mapa);
+        j->vidas = temp;
     }
 }

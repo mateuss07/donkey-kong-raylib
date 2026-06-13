@@ -1,4 +1,5 @@
 #include "constantes.h"
+#include <raylib.h>
 
 
 typedef struct {

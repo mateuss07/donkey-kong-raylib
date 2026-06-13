@@ -35,21 +35,44 @@ void salvar_placar(TIPO_PLACAR placar[], int qtd){
     }
 }
 
-int inserir_no_ranking(TIPO_PLACAR placar[], int *qtd, char nome[], int tempo){
+int inserir_no_placar(TIPO_PLACAR placar[], int *qtd, char nome[], int tempo){
     
-    if(*qtd==10 && tempo>=placar[*qtd-1].time){
-        strcpy(placar[*qtd].nome, nome);
-        placar[*qtd].time = tempo;
-        (*qtd)++;
+    int pos;
+    int achou=0;
+    pos = *qtd;
+
+    if(*qtd == 10 && tempo >= placar[9].time) //Verifica se entra no ranking
         return 0;
+
+    //Achar posição para colocar o novo tempo
+    for (int i = 0; i<*qtd && achou==0; i++) {
+        if (tempo < placar[i].time) {
+            pos = i;
+            achou=1;
         }
-    else i
+    }
+
+    if (*qtd <10) //Se o placar ainda não estiver cheio, aumenta a quantidade de jogadores (so nos primeiros ate encher)
+        (*qtd)++;
+
+    for (int i = *qtd-1; i>pos; i--) //Desloca todos jogadores acima do novo uma posição para baixo
+        placar[i] = placar[i - 1];
+
+    strcpy(placar[pos].nome, nome); //Coloca o nome do novo jogador no ranking
+    placar[pos].time = tempo; //Coloca o tempo do novo jogador no ranking
+
+    return 1;
 }
 
 
-void desenhar_ranking(TIPO_PLACAR placar[], int qtd){
-
+void desenhar_ranking(TIPO_PLACAR placar[], int qtd) {
+    DrawText("RANKING", GetScreenWidth()/2 - MeasureText("RANKING", 40)/2, 50, 40, GOLD);
+    for (int i = 0; i < qtd; i++) {
+        char texto[50];
+        sprintf(texto, "%d. %s - %d segundos\n", i + 1, placar[i].nome, placar[i].time);
+        DrawText(texto, GetScreenWidth()/2 - MeasureText(texto, 30)/2, 100 + i * 40, 30, BLACK);
     }                   
+}
     
     
 
