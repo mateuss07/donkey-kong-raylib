@@ -47,7 +47,8 @@ int main()
     int nivel = 1;
     TIPO_PLACAR placar[10];
     int qtd_placar;
-    char nome[20];
+    char nome[20]="";
+    int entra_ranking=0;
     INIMIGO_S inimigos[MAX_INIMIGOS];
     JOGADOR_S jogador;
     int opcao = MENU, qtd;
@@ -68,7 +69,7 @@ int main()
     jogador = inicializarJogador(mapa);
     qtd = inicializarInimigos(inimigos, mapa);
 
-    qtd_placar
+    qtd_placar = carregar_placar(placar);
 
     while (!WindowShouldClose())
     {
@@ -105,6 +106,9 @@ int main()
                     // Logica para lidar com a morte do jogador
                     // Por exemplo, você pode reiniciar o jogo ou mostrar uma tela de game over
                     opcao = GAME_OVER; // Exibe game over na tela
+                    if(tempo_jogo < placar[qtd_placar-1].time || qtd_placar<10){
+                        entra_ranking = 1;
+                    }
                 }
                 if (verificaPorta(jogador, mapa))
                 {
@@ -202,8 +206,8 @@ int main()
             desenharFase(nivel);
 
     
-            for (int i = 0; i < jogador.vidas; i++) {
-    DrawTexture(texturaVida, 10 + (i * 35), 10, WHITE);
+            for (int i=0;i<jogador.vidas;i++) {
+    DrawTexture(texturaVida, 10 + (i * 35), 10, WHITE); // Desenha os coracoes no canto esquerdo da tela
 }
         }
         else if (opcao == PAUSA)

@@ -43,7 +43,8 @@ int inserir_no_placar(TIPO_PLACAR placar[], int *qtd, char nome[], int tempo){
 
     if(*qtd == 10 && tempo >= placar[9].time) //Verifica se entra no ranking
         return 0;
-
+    
+    else{
     //Achar posição para colocar o novo tempo
     for (int i = 0; i<*qtd && achou==0; i++) {
         if (tempo < placar[i].time) {
@@ -62,6 +63,7 @@ int inserir_no_placar(TIPO_PLACAR placar[], int *qtd, char nome[], int tempo){
     placar[pos].time = tempo; //Coloca o tempo do novo jogador no ranking
 
     return 1;
+    }
 }
 
 
