@@ -79,18 +79,20 @@ void desenhar_ranking(TIPO_PLACAR placar[], int qtd) {
 
 int desenhar_entrada_nome(char nome[]){
     int tamanho;
-    char tecla;
+    int tecla = GetCharPressed();
 
-    while (GetCharPressed() > 0){
-
-        tecla = GetCharPressed();
-
+    while (tecla > 0){
         if((tecla >= 32) && (tecla <=126) && strlen(nome) < 19){
             tamanho = strlen(nome);
             nome[tamanho] = tecla;
             nome[tamanho+1] = '\0';
             tamanho++;
         }
+        tecla = GetCharPressed();
+    }
+
+    if(IsKeyPressed(KEY_BACKSPACE) && strlen(nome) > 0){
+        nome[strlen(nome)-1] = '\0';
     }
 
     DrawText("Parabens!", LARGURA_TELA/2 - MeasureText("Parabens!", 36)/2, ALTURA_TELA/2 - 100, 36, YELLOW);
@@ -99,9 +101,7 @@ int desenhar_entrada_nome(char nome[]){
     DrawText(nome, LARGURA_TELA/2 - MeasureText(nome, 28)/2, ALTURA_TELA/2 + 35, 28, WHITE);
     DrawText("ENTER - Confirmar", LARGURA_TELA/2 - MeasureText("ENTER - Confirmar", 18)/2, ALTURA_TELA/2 + 90, 18, GRAY);
     
-    if(IsKeyPressed(KEY_BACKSPACE) && strlen(nome) > 0){
-        nome[strlen(nome)-1] = '\0';
-    }
+    
     if(IsKeyPressed(KEY_ENTER))
         return 1;
 }

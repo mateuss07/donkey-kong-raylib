@@ -106,9 +106,6 @@ int main()
                     // Logica para lidar com a morte do jogador
                     // Por exemplo, você pode reiniciar o jogo ou mostrar uma tela de game over
                     opcao = GAME_OVER; // Exibe game over na tela
-                    if(tempo_jogo < placar[qtd_placar-1].time || qtd_placar<10){
-                        entra_ranking = 1;
-                    }
                 }
                 if (verificaPorta(jogador, mapa))
                 {
@@ -217,7 +214,7 @@ int main()
     
             for (int i = 0; i < jogador.vidas; i++)
 {
-    DrawTextureEx(texturaVida, (Vector2){10 + (i * 25), 30}, 0, 0.5f, WHITE);
+    DrawTextureEx(texturaVida, (Vector2){10 + (i * 25), 20}, 0, 1.0f, WHITE);
 }
         }
         else if (opcao == PAUSA)
@@ -230,19 +227,12 @@ int main()
 
         else if (opcao == GAME_OVER)
         {
-            if(entra_ranking == 1){
-                if(desenhar_entrada_nome(nome) == 1){
-                    inserir_no_placar(placar, &qtd_placar, nome, (int)tempo_jogo);
-                    salvar_placar(placar, qtd_placar);
-                    entra_ranking=0;
-                }
-            }
-            else
-                desenharGameOver();
+            desenharGameOver();
         }
         else if (opcao == VITORIA)
         {
             if(entra_ranking == 1){
+                ClearBackground(BLACK);
                 if(desenhar_entrada_nome(nome) == 1){
                     inserir_no_placar(placar, &qtd_placar, nome, (int)tempo_jogo);
                     salvar_placar(placar, qtd_placar);
