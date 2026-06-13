@@ -25,7 +25,7 @@ void desenharJogador(JOGADOR_S j)
     int x, y;
     x = j.coluna * TAMANHO;
     y = j.linha * TAMANHO;
-    DrawRectangle(x, y, TAMANHO, TAMANHO, BLUE);
+    DrawTexture(LoadTexture("sprites/personagem.png"), x, y, WHITE);
 }
 
 void atualizarJogador(JOGADOR_S *j, char mapa[LINHAS][COLUNAS])

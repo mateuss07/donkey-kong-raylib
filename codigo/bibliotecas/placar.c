@@ -21,6 +21,24 @@ int carregar_placar(TIPO_PLACAR placar[]){
     }
 }
 
+void salvar_placar(TIPO_PLACAR placar[], int qtd){
+    FILE *arq;
+    arq = fopen("placar.bin", "wb");
+
+    if(!arq)
+        printf("Erro ao abrir o arquivo do placar\n");
+    else{
+        for(int i=0; i<qtd; i++){
+            fwrite(&placar[i], sizeof(TIPO_PLACAR), 1, arq);
+        }
+        fclose(arq);
+    }
+}
+
+int inserir_no_ranking(TIPO_PLACAR placar[], int *qtd, char nome[]){
+    
+}
+
 
 
 void desenhar_ranking(TIPO_PLACAR placar[], int qtd){
@@ -31,6 +49,7 @@ void desenhar_ranking(TIPO_PLACAR placar[], int qtd){
 
 
 void desenhar_entrada_nome(char nome[]){
+    
 
     
 }
