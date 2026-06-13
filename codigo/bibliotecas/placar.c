@@ -61,7 +61,7 @@ void inserir_no_placar(TIPO_PLACAR placar[], int *qtd, char nome[], int tempo){
 
 
 void desenhar_ranking(TIPO_PLACAR placar[], int qtd) {
-    DrawText("RANKING", GetScreenWidth()/2 - MeasureText("RANKING", 40)/2, 50, 40, GOLD);
+    DrawText("RANKING", GetScreenWidth()/2 - MeasureText("RANKING", 40)/2, 50, 40, RAYWHITE);
     if(qtd == 0){
         DrawText("Nenhum recorde registrado ainda!", GetScreenWidth()/2 - MeasureText("Nenhum recorde registrado ainda!", 30)/2, 150, 30, BLACK);
     }
@@ -95,8 +95,8 @@ int desenhar_entrada_nome(char nome[]){
         nome[strlen(nome)-1] = '\0';
     }
 
-    DrawText("Parabens!", LARGURA_TELA/2 - MeasureText("Parabens!", 36)/2, ALTURA_TELA/2 - 100, 36, YELLOW);
-    DrawText("Voce entrou no top 10!", LARGURA_TELA/2 - MeasureText("Voce entrou no top 10!", 22)/2, ALTURA_TELA/2 - 50, 22, RAYWHITE);
+    DrawText("PARABENS!", LARGURA_TELA/2 - MeasureText("PARABENS!", 36)/2, ALTURA_TELA/2 - 100, 36, YELLOW);
+    DrawText("Voce esta no top 10!", LARGURA_TELA/2 - MeasureText("Voce esta no top 10!", 22)/2, ALTURA_TELA/2 - 50, 22, RAYWHITE);
     DrawText("Digite seu nome:", LARGURA_TELA/2 - MeasureText("Digite seu nome:", 22)/2, ALTURA_TELA/2, 22, GRAY);
     DrawText(nome, LARGURA_TELA/2 - MeasureText(nome, 28)/2, ALTURA_TELA/2 + 35, 28, WHITE);
     DrawText("ENTER - Confirmar", LARGURA_TELA/2 - MeasureText("ENTER - Confirmar", 18)/2, ALTURA_TELA/2 + 90, 18, GRAY);
